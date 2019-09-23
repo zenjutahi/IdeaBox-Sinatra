@@ -9,16 +9,17 @@ class IdeaBoxApp < Sinatra::Base
     erb :error
   end
   
+  get '/' do
+    erb :index, locals: {ideas: Idea.all}
+  end
+  
   post '/' do
     # 1. Create an idea based on the from parameters
-    idea = Idea.new
-    # 2. Store is
+    idea = Idea.new params['idea_title'], params['idea_description']
+    # 2. Store it
     idea.save
     # 3. Send user back to index page to see Ideas 
-    "Creating an IDEA!"
+    redirect '/'
   end
 
-  get '/' do
-    erb :index 
-  end
 end
