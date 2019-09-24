@@ -1,8 +1,8 @@
-require './idea'
-require './idea_store'
+require 'idea_box'
 
 class IdeaBoxApp < Sinatra::Base
   set :method_override, true
+  set :root, 'lib/app'
   
   configure :development do
     register Sinatra::Reloader 
@@ -18,9 +18,7 @@ class IdeaBoxApp < Sinatra::Base
   
   post '/' do
     # 1. Create an idea based on the from parameters
-    idea = Idea.new(params[:idea])
-    # 2. Store it
-    idea.save
+    idea = IdeaStore.create(params[:idea])
     # 3. Send user back to index page to see Ideas 
     redirect '/'
   end

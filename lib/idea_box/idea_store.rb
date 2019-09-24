@@ -30,12 +30,19 @@ class IdeaStore
   end
 
   def self.database
-    @database ||= YAML::Store.new "ideaboxdb"
+    @database ||= YAML::Store.new "db/ideaboxdb"
   end
 
   def self.delete(position)
     database.transaction do
       database['ideas'].delete_at(position)
+    end
+  end
+  
+  def self.create(attributes)
+    database.transaction do
+      database['ideas'] ||= []
+      database['ideas'] << attributes
     end
   end
 end
