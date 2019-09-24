@@ -3,7 +3,7 @@ ideas:
 - title: new
   description: We’ll use the same positional identifier to figure out which element
     to edit
-  rank: 2
+  rank: 6
 - title: app
   description: IdeaStore.update(id.to_i, idea.to_h)
-  rank: 2
+  rank: 5
