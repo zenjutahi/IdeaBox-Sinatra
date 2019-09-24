@@ -37,5 +37,13 @@ class IdeaBoxApp < Sinatra::Base
     IdeaStore.delete(id.to_i)
     redirect '/'
   end
+  
+  post '/:id/like' do |id|
+    idea = IdeaStore.find(id.to_i)
+    idea.like!
+    # binding.pry
+    IdeaStore.update(id.to_i, idea.to_h)
+    redirect '/'
+  end
 
 end
