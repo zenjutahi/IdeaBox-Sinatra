@@ -1,13 +1,9 @@
 ---
 ideas:
-- !ruby/hash:Sinatra::IndifferentHash
-  title: appy one 1
+- title: new
   description: We’ll use the same positional identifier to figure out which element
     to edit
-- !ruby/hash:Sinatra::IndifferentHash
-  title: app 2
-  description: We’ll use the same positional identifier to figure out which element
-    to edit
-- !ruby/hash:Sinatra::IndifferentHash
-  title: nmew
-  description: "`require': cannot load such file -- app (LoadError)"
+  rank: 2
+- title: app
+  description: IdeaStore.update(id.to_i, idea.to_h)
+  rank: 2
