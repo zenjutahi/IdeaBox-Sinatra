@@ -1,4 +1,5 @@
 require './idea'
+require './idea_store'
 
 class IdeaBoxApp < Sinatra::Base
   set :method_override, true
@@ -12,22 +13,7 @@ class IdeaBoxApp < Sinatra::Base
   end
   
   get '/' do
-    erb :index, locals: {ideas: Idea.all}
-  end
-  
-  put '/:id' do |id|
-    Idea.update(id.to_i, params[:idea])
-    redirect '/'
-  end
-  
-  get '/:id/edit' do |id|
-    idea = Idea.find(id.to_i)
-    erb :edit, locals: {id: id, idea: idea}
-  end
-  
-  delete '/:id' do |id|
-    Idea.delete(id.to_i)
-    redirect '/'
+    erb :index, locals: {ideas: IdeaStore.all, idea: Idea.new(params)}
   end
   
   post '/' do
@@ -36,6 +22,21 @@ class IdeaBoxApp < Sinatra::Base
     # 2. Store it
     idea.save
     # 3. Send user back to index page to see Ideas 
+    redirect '/'
+  end
+  
+  get '/:id/edit' do |id|
+    idea = IdeaStore.find(id.to_i)
+    erb :edit, locals: {id: id, idea: idea}
+  end
+  
+  put '/:id' do |id|
+    IdeaStore.update(id.to_i, params[:idea])
+    redirect '/'
+  end
+  
+  delete '/:id' do |id|
+    IdeaStore.delete(id.to_i)
     redirect '/'
   end
 

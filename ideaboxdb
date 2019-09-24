@@ -1,7 +1,8 @@
 ---
 ideas:
-- :title: The firsty wow
-  :description: Get up and create money gkai me
+- !ruby/hash:Sinatra::IndifferentHash
+  title: The firsty woji
+  description: Get up and create money gkai me
 - :title: app
   :description: "concistency acauntabilty buddy\r\n"
 - !ruby/hash:Sinatra::IndifferentHash
