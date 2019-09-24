@@ -2,9 +2,11 @@ require 'yaml/store'
 
 class IdeaStore
   def self.all
-    raw_ideas.map do |data|
-      Idea.new(data)
+    ideas = []
+    raw_ideas.each_with_index do |data, i|
+      ideas << Idea.new(data.merge("id" => i))
     end
+    ideas
   end
 
   def self.update(id, data)
@@ -20,7 +22,8 @@ class IdeaStore
   end
 
   def self.find(id)
-    Idea.new(find_raw_idea(id))
+    raw_idea = find_raw_idea(id)
+    Idea.new(find_raw.merge("id" => id))
   end
 
   def self.find_raw_idea(id)
