@@ -1,9 +1,10 @@
 ---
 ideas:
-- title: new
+- !ruby/hash:Sinatra::IndifferentHash
+  title: app
   description: We’ll use the same positional identifier to figure out which element
-    to edit
-  rank: 6
-- title: app
-  description: IdeaStore.update(id.to_i, idea.to_h)
-  rank: 5
+    to edit.
+- title: 'Idea '
+  description: We’ll use the same positional identifier to figure out which element
+    to edit.
+  rank: 1
