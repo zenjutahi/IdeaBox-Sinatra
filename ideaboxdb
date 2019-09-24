@@ -4,5 +4,6 @@ ideas:
   :description: Get up and create money gkai me
 - :title: app
   :description: "concistency acauntabilty buddy\r\n"
-- :title: follow
-  :description: an idea to follow idea as intended
+- !ruby/hash:Sinatra::IndifferentHash
+  title: follows g
+  description: an idea to follow idea as intended seec
