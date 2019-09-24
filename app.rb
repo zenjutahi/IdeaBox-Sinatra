@@ -36,7 +36,7 @@ class IdeaBoxApp < Sinatra::Base
   
   post '/' do
     # 1. Create an idea based on the from parameters
-    idea = Idea.new params['idea_title'], params['idea_description']
+    idea = Idea.new(params[:idea])
     # 2. Store it
     idea.save
     # 3. Send user back to index page to see Ideas 
