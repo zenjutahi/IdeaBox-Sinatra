@@ -23,7 +23,7 @@ class IdeaStore
 
   def self.find(id)
     raw_idea = find_raw_idea(id)
-    Idea.new(find_raw.merge("id" => id))
+    Idea.new(raw_idea.merge("id" => id))
   end
 
   def self.find_raw_idea(id)
@@ -33,7 +33,13 @@ class IdeaStore
   end
 
   def self.database
+    return @database if @database
+    
     @database ||= YAML::Store.new "db/ideaboxdb"
+    @database.transaction do
+      @database['ideas'] ||= []
+    end
+    @database
   end
 
   def self.delete(position)
@@ -44,7 +50,6 @@ class IdeaStore
   
   def self.create(attributes)
     database.transaction do
-      database['ideas'] ||= []
       database['ideas'] << attributes
     end
   end
