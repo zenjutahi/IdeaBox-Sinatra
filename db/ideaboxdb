@@ -1,10 +1,11 @@
 ---
 ideas:
-- !ruby/hash:Sinatra::IndifferentHash
-  title: app
-  description: We’ll use the same positional identifier to figure out which element
-    to edit.
-- title: 'Idea '
-  description: We’ll use the same positional identifier to figure out which element
-    to edit.
-  rank: 1
+- title: app
+  description: Should you require any clarification, please contact us on
+  rank: 2
+- title: two
+  description: Should you require any clarification, please contact us on
+  rank: 3
+- title: follow
+  description: Should you require any clarification, please contact us on
+  rank: 3
