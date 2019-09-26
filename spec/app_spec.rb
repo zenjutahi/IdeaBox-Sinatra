@@ -13,4 +13,9 @@ describe IdeaBoxApp do
     get '/'
     expect(last_response.body).to include("Existing Ideas")
   end
+  
+  it 'includes "Edit Ideas" from the edit page' do
+    get '/:id/edit'
+    expect(last_response.body).to include("Edit your Idea")
+  end
 end
